@@ -1,0 +1,15 @@
+{
+  "name": "nodeWs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chat-frontend.js",
+  "scripts": {
+    "start": "node ./chat-server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.31"
+  }
+}

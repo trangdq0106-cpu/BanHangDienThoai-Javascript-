@@ -1,0 +1,35 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src='http://127.0.0.1:8080/socket.io/socket.io.js'></script>
+	
+</head>
+
+<body>
+
+	<div id="Th_Ket_qua"></div>
+	<input placeholder="Nhập Tên" type="text" id="Th_Ten" />
+	<input placeholder="Nhập Nội dung tin" type="text" id="Th_Noi_dung" />
+	<button id="Th_Goi">Gởi </button>
+</body>
+<script>
+	Khoi_tao_Ung_dung()
+	function Khoi_tao_Ung_dung() {
+		var socket = io.connect('http://127.0.0.1:8080/');
+		socket.on('access', function (data) {
+			alert(data);
+		});
+		Th_Goi.onclick = () => {
+			socket.emit('send_msg', Th_Ten.value, Th_Noi_dung.value);
+		};
+		socket.on('send_back', function (id, msg) {
+			Th_Ket_qua.innerHTML+=(id + " - " + msg + "<br/>");
+		});
+		socket.on('send_back_all', function (id, msg) {
+			Th_Ket_qua.innerHTML+=(id + " - " + msg + "<br/>");
+		});
+	}
+</script>
+
+</html>
