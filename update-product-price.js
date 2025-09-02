@@ -28,3 +28,6 @@ function updatePrice(productId, newPrice) {
 displayProducts(); // Hiển thị danh sách sản phẩm ban đầu
 updatePrice(2, 21000000); // Cập nhật giá sản phẩm có ID 2
 displayProducts(); // Hiển thị danh sách sản phẩm sau khi cập nhật
+
+
+//làm khá tốt!!!!
