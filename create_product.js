@@ -1,1 +1,1 @@
-console.log('Tạo model Product')
+console.log('Tạo model Product, thats ok!!');
