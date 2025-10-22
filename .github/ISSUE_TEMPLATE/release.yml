@@ -1,0 +1,89 @@
+name: "Release"
+description: "Plan and track a new release"
+labels:
+  - release
+  - needs-triage
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Semantic version for this release (e.g., v1.2.3)
+      placeholder: vX.Y.Z
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Key goals and highlights for this release
+      placeholder: Short description of what this release includes
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Features, fixes, or changes targeted in this release
+      placeholder: Bullet points of items in scope
+      value: "- Feature: \n- Fix: \n- Chore: "
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Pre-release checklist
+      description: Ensure all steps are completed before tagging
+      value: |
+        - [ ] CHANGELOG updated
+        - [ ] Version bumped
+        - [ ] Tests passing (CI green)
+        - [ ] Docs updated
+        - [ ] Security review (if applicable)
+        - [ ] Feature flags toggled (if applicable)
+        - [ ] Deprecations communicated
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and mitigations
+      description: Known risks and how you'll mitigate them
+      placeholder: List risks and mitigations
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test plan
+      description: How this release is tested and validated
+      value: |
+        - Unit tests
+        - Integration tests
+        - Manual QA
+        - Smoke test in staging
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout plan
+      description: Release process, rollout strategy, and monitoring plan
+      value: |
+        - Tag and create GitHub Release
+        - Deploy to staging
+        - Monitor metrics/logs
+        - Gradual rollout / canary
+        - Full rollout
+        - Rollback plan
+  - type: textarea
+    id: comms
+    attributes:
+      label: Communication
+      description: Who needs to know and how you'll announce
+      value: |
+        - Stakeholders and teams
+        - Release notes
+        - User announcement
+  - type: textarea
+    id: post_release
+    attributes:
+      label: Post-release checklist
+      description: Steps after release is completed
+      value: |
+        - [ ] Monitor production for 24-48h
+        - [ ] Close resolved issues/PRs
+        - [ ] Postmortem for incidents (if any)
+        - [ ] Retrospective and learnings
